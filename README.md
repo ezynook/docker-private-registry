@@ -1,4 +1,4 @@
-<img src="https://blog.zachinachshon.com/assets/images/container-registry/docker-registry/docker-registry-blog-220x230.png" width="100" align="center">
+<img src="https://blog.zachinachshon.com/assets/images/container-registry/docker-registry/docker-registry-blog-220x230.png" width="150" align="center">
 
 # วิธีติดตั้ง Docker Registry Private
 
