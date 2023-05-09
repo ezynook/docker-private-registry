@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  registry:
+    image: registry:2
+    container_name: registry
+    restart: always
+    ports:
+      - 5000:5000
+    volumes:
+      - /home/registry/certs:/etc/certs
+      - /home/registry/auth:/etc/auth
+      - /home/registry/data:/var/lib/registry
+    environment:
+      REGISTRY_STORAGE_DELETE_ENABLED: true
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+      REGISTRY_AUTH_HTPASSWD_PATH: /etc/auth/htpasswd
+      REGISTRY_HTTP_TLS_CERTIFICATE: /etc/certs/ca.crt
+      REGISTRY_HTTP_TLS_KEY: /etc/certs/ca.key
