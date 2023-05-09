@@ -1,6 +1,8 @@
-<img src="https://blog.zachinachshon.com/assets/images/container-registry/docker-registry/docker-registry-blog-220x230.png" width="150" align="center">
+<div align="center">
+  <img src="https://blog.zachinachshon.com/assets/images/container-registry/docker-registry/docker-registry-blog-220x230.png" width="150" align="center">
+</div>
 
-# วิธีติดตั้ง Docker Registry Private
+# วิธีติดตั้ง Docker Private Registry
 
 สิ่งที่ควรมีก่อนทำ Step ข้างล่าง
 - Docker
@@ -76,6 +78,7 @@ docker run --name registry \
 -v /home/registry/auth:/etc/auth \
 -v /home/registry/data:/var/lib/registry \
 -e "REGISTRY_AUTH=htpasswd" \
+-e REGISTRY_STORAGE_DELETE_ENABLED=true
 -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" \
 -e REGISTRY_AUTH_HTPASSWD_PATH=/etc/auth/htpasswd \
 -e REGISTRY_HTTP_TLS_CERTIFICATE=/etc/certs/ca.crt \
@@ -97,6 +100,7 @@ services:
       - /home/registry/auth:/etc/auth
       - /home/registry/data:/var/lib/registry
     environment:
+      REGISTRY_STORAGE_DELETE_ENABLED: true
       REGISTRY_AUTH: htpasswd
       REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
       REGISTRY_AUTH_HTPASSWD_PATH: /etc/auth/htpasswd
